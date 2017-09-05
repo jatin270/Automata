@@ -1,0 +1,117 @@
+
+        if (result1 == result2) {
+
+            float radius = 100;
+            Paint mpaint = new Paint();
+            mpaint.setStyle(Paint.Style.STROKE);
+            mpaint.setStrokeWidth(5);
+            mpaint.setColor(Color.rgb(255, 153, 51));
+            canvas.drawCircle(startx - 75, starty - 75, radius, mpaint);
+
+            //to draw an arrow, just lines needed, so style is only STROKE
+            mpaint.setStyle(Paint.Style.STROKE);
+            mpaint.setColor(Color.RED);
+            mpaint.setStrokeWidth(5);
+
+            //create a path to draw on
+            Path arrowPath = new Path();
+            //draw path on canvas
+            canvas.drawPath(arrowPath, paint);
+            float endx1 = endx + 25;
+            float endy1 = endy - radius;
+
+            canvas.drawText(""+t, endx1+10, endy1+10, painttext);
+            //draw arrowhead on path start
+//            arrowPath.moveTo(endx-5, ((float) (Math.tan((endy-starty)/(endx-startx)))*(-5))+endy); //move to the center of first circle
+            arrowPath.moveTo(endx1, endy1);//move back to the center
+            arrowPath.lineTo(endx1 - 20, endy1 - 20);//draw the first arrowhead line to the left
+            arrowPath.moveTo(endx1, endy1);//move back to the center
+            arrowPath.lineTo(endx1 + 20, endy1 - 20);//draw the next arrowhead line to the right
+            canvas.rotate(180, endx1, endy1);
+            canvas.drawPath(arrowPath, mpaint);
+        } else if (arr[result2 + 1][result1 + 1] == true) {
+            Paint mpaint = new Paint();
+            mpaint.setAntiAlias(true);
+            mpaint.setStyle(Paint.Style.STROKE);
+            mpaint.setStrokeWidth(7);
+            mpaint.setColor(Color.rgb(255, 153, 51));
+            final Path path = new Path();
+            int midX = (int) (startx + ((endx - startx) / 2));
+            int midY = (int) (starty + ((endy - starty) / 2));
+            float xDiff = midX - startx;
+            float yDiff = midY - starty;
+            double angle = (Math.atan2(yDiff, xDiff) * (180 / Math.PI)) - 90;
+            double angleRadians = Math.toRadians(angle);
+            float pointX = (float) (midX + 200 * Math.cos(angleRadians));
+            float pointY = (float) (midY + 200 * Math.sin(angleRadians));
+
+            path.moveTo(startx, starty);
+            path.cubicTo(startx, starty, pointX, pointY, endx, endy);
+            canvas.drawPath(path, mpaint);
+
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.RED);
+            paint.setStrokeWidth(7);
+
+            Path arrowPath = new Path();
+
+            //draw path on canvas
+            canvas.drawPath(arrowPath, paint);
+
+            float endx1 = (float) ((startx + endx) / 2 + 100 * Math.cos(angleRadians));
+            float endy1 = (float) ((starty + endy) / 2 + 100 * Math.sin(angleRadians));
+
+            canvas.drawText(""+t, endx1+10, endy1+10, painttext);
+
+            //draw arrowhead on path start
+//            arrowPath.moveTo(endx-5, ((float) (Math.tan((endy-starty)/(endx-startx)))*(-5))+starty); //move to the center of first circle
+            if (startx < endx) {
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 - 20, endy1 - 20);//draw the first arrowhead line to the left
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 + 20, endy1 - 20);//draw the next arrowhead line to the right
+            } else {
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 + 20, endy1 + 20);//draw the first arrowhead line to the left
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 - 20, endy1 + 20);//draw the next arrowhead line to the right
+            }
+
+            canvas.rotate((float) Math.toDegrees(Math.atan((endy - starty) / (endx - startx))) - 90, endx1, endy1);
+            canvas.drawPath(arrowPath, paint);
+        } else {
+            canvas.drawLine(startx, starty, endx, endy, paint);
+
+            //to draw an arrow, just lines needed, so style is only STROKE
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.RED);
+            paint.setStrokeWidth(7);
+
+            //create a path to draw on
+            Path arrowPath = new Path();
+
+            //draw path on canvas
+            canvas.drawPath(arrowPath, paint);
+            float endx1 = (startx + endx) / 2;
+            float endy1 = (starty + endy) / 2;
+
+            canvas.drawText(""+t, endx1+10, endy1+10, painttext);
+
+            //draw arrowhead on path start
+//            arrowPath.moveTo(endx-5, ((float) (Math.tan((endy-starty)/(endx-startx)))*(-5))+endy); //move to the center of first circle
+            if (startx < endx) {
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 - 20, endy1 - 20);//draw the first arrowhead line to the left
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 + 20, endy1 - 20);//draw the next arrowhead line to the right
+            } else {
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 + 20, endy1 + 20);//draw the first arrowhead line to the left
+                arrowPath.moveTo(endx1, endy1);//move back to the center
+                arrowPath.lineTo(endx1 - 20, endy1 + 20);//draw the next arrowhead line to the right
+            }
+
+            canvas.rotate((float) Math.toDegrees(Math.atan((endy - starty) / (endx - startx))) - 90, endx1, endy1);
+            canvas.drawPath(arrowPath, paint);
+
+        }

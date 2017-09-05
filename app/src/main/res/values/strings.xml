@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Automata Simulator</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="deletemessage">Are you sure you want to delete the automata ?</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="turing1">
+        L for left , R  for right, - for halt(Direction)
+    </string>
+    <string name="turing2">Current State and next State(Integer Value Only)</string>
+    <string name="finite1">Start and end (Integer Value Only)</string>
+    <string name="finite2">Transition Character(a-g),\\ for epilson</string>
+    <string name="push1">\\ for epilson</string>
+    <string name="push2">Inital and Final (Integer Value Only)</string>
+
+</resources>

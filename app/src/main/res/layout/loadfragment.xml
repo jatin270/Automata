@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent"
+     android:layout_width="match_parent"
+    >
+
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Enter file name :"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textStyle="normal|bold"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/loadname"
+        android:hint="Name..." />
+
+    <Button
+        android:text="Load"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:id="@+id/loadfile"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/loadlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:layout_weight="0.08" />
+
+
+</LinearLayout>
+
+
+</RelativeLayout>

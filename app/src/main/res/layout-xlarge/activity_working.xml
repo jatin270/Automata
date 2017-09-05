@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_working"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="in.nsit.com.automata.FiniteAutomata.WorkingA">
+
+
+
+
+<!---
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/transition"
+        android:id="@+id/activity_working1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp">
+
+       <ImageView
+            android:id="@+id/DrawingImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+-->
+
+
+    <Button
+        android:text="Export"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/export"
+        android:layout_below="@+id/addstate"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Simulate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/simulate"
+        android:onClick="simulate"
+
+        android:layout_below="@+id/transition"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+                android:text="Add Transition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:id="@+id/transition"
+        android:onClick="addTransition"
+        android:layout_marginEnd="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="in.nsit.com.automata.GraphDisplay"
+        android:id="@+id/graphdisplay"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/export"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Add State"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addstate"
+        android:onClick="addstate"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp" />
+
+
+</RelativeLayout>
+
